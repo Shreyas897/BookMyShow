@@ -1,6 +1,8 @@
 package com.example.Book_My_Show.Entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -8,6 +10,8 @@ import java.util.UUID;
 
 @Entity
 @Table(name="tickets")
+@Data
+@NoArgsConstructor
 public class TicketEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +22,8 @@ public class TicketEntity {
     private int totalAmount;
     private String theaterName;
     private String ticketId= UUID.randomUUID().toString();
+    private String bookedSeats;
+
 
     @ManyToOne
     @JoinColumn
